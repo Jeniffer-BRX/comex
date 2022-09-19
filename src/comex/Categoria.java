@@ -1,15 +1,16 @@
 package comex;
 
+import java.lang.String;
 public class Categoria {
 
 	private int id_cat = 0;
-	private char nome_cat = 0;
+	private String nome_cat;
 	private boolean status_cat = true;
 
 	public Categoria() {
 	}
 
-	public Categoria(int id_cat, char nome_cat, boolean status_cat) {
+	public Categoria(int id_cat, String nome_cat, boolean status_cat) {
 		super();
 		this.id_cat = id_cat;
 		this.nome_cat = nome_cat;
@@ -24,11 +25,11 @@ public class Categoria {
 		this.id_cat = id_cat;
 	}
 
-	public char getNome_cat() {
+	public String getNome_cat() {
 		return nome_cat;
 	}
 
-	public void setNome_cat(char nome_cat) {
+	public void setNome_cat(String nome_cat) {
 		this.nome_cat = nome_cat;
 	}
 
