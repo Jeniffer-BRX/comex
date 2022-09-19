@@ -6,14 +6,17 @@ import comex.Categoria;
 
 public class MainCategoria {
 	
-	private Categoria vCategoria(Categoria vCategoria) {
+	public static void main(String[] args) {
 		
-		 vCategoria = new Categoria();
-		
-		//vCategoria1 
-		
-		return null;
+		Categoria categoria = new Categoria();
+
+		// vCategoria1
+
+		return;
 	} 
+		
+		 
+	
 	
 	
 	
