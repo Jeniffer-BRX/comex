@@ -37,6 +37,8 @@ local.properties
 .settings/
 .loadpath
 .recommenders
+.project
+.pydevproject
 
 # External tool builders
 .externalToolBuilders/
