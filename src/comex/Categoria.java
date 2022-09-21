@@ -1,20 +1,26 @@
 package comex;
 
 import java.lang.String;
+
 public class Categoria {
 
 	private int id_cat = 0;
 	private String nome_cat;
-	private boolean status_cat = true;
+	private char statusC;
 
-	public Categoria() {
+	public static enum statusC {
+
+		ATIVA, INATIVA;
 	}
 
-	public Categoria(int id_cat, String nome_cat, boolean status_cat) {
+	public Categoria() {
+	} // construtor
+
+	public Categoria(int id_cat, String nome_cat, String statusC) {
 		super();
 		this.id_cat = id_cat;
 		this.nome_cat = nome_cat;
-		this.status_cat = status_cat;
+
 	}
 
 	public int getId_cat() {
@@ -33,12 +39,17 @@ public class Categoria {
 		this.nome_cat = nome_cat;
 	}
 
-	public boolean isStatus_cat() {
-		return status_cat;
+	public char getStatusC() {
+		return statusC;
 	}
 
-	public void setStatus_cat(boolean status_cat) {
-		this.status_cat = status_cat;
+	public void setStatusC(char ativa) {
+		this.statusC = ativa;
+	}
+
+	public void setStatusC(comex.Categoria.statusC inativa) {
+		// TODO Auto-generated method stub
+
 	}
 
 }

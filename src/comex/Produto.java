@@ -5,18 +5,25 @@ public class Produto {
 	private int id_produto = 0;
 	private char descricao;
 	private char nome_prod;
-	private float preco_uni;
+	private double preco_uni;
 	private int qtd_estoque;
-	private char categoria;
+	private String categoria;
+	private double total_estoque;
+	private double imposto;
 
-	public Produto () {}
+	public Produto () {} // construtor 
 	
-	public void calcTotalEstoque () { // multiplica a quantidade em estoque pelo preço unitário
-		return;
+	public double calcTotalEstoque () { // multiplica a quantidade em estoque pelo preço unitário
+		
+		total_estoque = qtd_estoque*preco_uni;
+		return total_estoque;
+		
 	}
 	
-	public void calculaImposto () { //40 % do preço unitário
-		return;
+	public double calculaImposto () { //40 % do preço unitário
+		
+		imposto = preco_uni * 0.04;
+		return imposto;
 	}
 
 	public int getId_produto() {
@@ -43,12 +50,12 @@ public class Produto {
 		this.nome_prod = nome_prod;
 	}
 
-	public float getPreco_uni() {
+	public double getPreco_uni() {
 		return preco_uni;
 	}
 
-	public void setPreco_uni(float preco_uni) {
-		this.preco_uni = preco_uni;
+	public void setPreco_uni(double d) {
+		this.preco_uni = d;
 	}
 
 	public int getQtd_estoque() {
@@ -59,12 +66,33 @@ public class Produto {
 		this.qtd_estoque = qtd_estoque;
 	}
 
-	public char getCategoria() {
+	public String getCategoria() {
 		return categoria;
 	}
 
-	public void setCategoria(char categoria) {
-		this.categoria = categoria;
+	public void setCategoria(String string) {
+		this.categoria = string;
+	}
+
+	public double getTotal_estoque() {
+		return total_estoque;
+	}
+
+	public void setTotal_estoque(float total_estoque) {
+		this.total_estoque = total_estoque;
+	}
+
+	public double getImposto() {
+		return imposto;
+	}
+
+	public void setImposto(float imposto) {
+		this.imposto = imposto;
+	}
+
+	public void setNome_prod(String string) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	
