@@ -39,11 +39,11 @@ public class MainProduto {
 		System.out.println("\n --**--**-- \n");
 		//System.out.println("\n\nValor total do estoque: " + produto.calcTotalEstoque());
 		
-		//Produto estoque = new Produto();
-		//estoque = produto1 + produto2 + produto3;
+		
 		
 	}
 
+	
 }
 
 /*

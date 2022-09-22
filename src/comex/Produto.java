@@ -5,11 +5,12 @@ public class Produto {
 	private int id_produto = 0;
 	private char descricao;
 	private char nome_prod;
-	private double preco_uni;
+	protected double preco_uni;
 	private int qtd_estoque;
 	private String categoria;
 	private double total_estoque;
-	private double imposto;
+	protected double vimposto;
+	private double timposto;
 
 	public Produto () {} // construtor 
 	
@@ -22,8 +23,9 @@ public class Produto {
 	
 	public double calculaImposto () { //40 % do preço unitário
 		
-		imposto = preco_uni * 0.04;
-		return imposto;
+		vimposto = preco_uni * 0.04;
+		timposto = vimposto + preco_uni;
+		return timposto;
 	}
 
 	public int getId_produto() {
@@ -83,11 +85,11 @@ public class Produto {
 	}
 
 	public double getImposto() {
-		return imposto;
+		return vimposto;
 	}
 
 	public void setImposto(float imposto) {
-		this.imposto = imposto;
+		this.vimposto = imposto;
 	}
 
 	public void setNome_prod(String string) {
@@ -95,7 +97,13 @@ public class Produto {
 		
 	}
 	
-	
+	public double getImpostoT() {
+		return timposto;
+	}
+
+	public void setImpostoT(float timposto) {
+		this.vimposto = timposto;
+	}
 	
 	
 }
