@@ -3,16 +3,17 @@ package comex;
 public class Produto {
 
 	private int id_produto = 0;
-	private char descricao;
-	private char nome_prod;
+	private String descricao;
+	private String nome_prod;
 	protected double preco_uni;
 	private int qtd_estoque;
 	private String categoria;
 	private double total_estoque;
-	protected double vimposto;
+	protected double vimposto=0;
 	private double timposto;
 
 	public Produto () {} // construtor 
+	
 	
 	public double calcTotalEstoque () { // multiplica a quantidade em estoque pelo preço unitário
 		
@@ -22,10 +23,12 @@ public class Produto {
 	}
 	
 	public double calculaImposto () { //40 % do preço unitário
+		//timposto = vimposto + preco_uni;
 		
-		vimposto = preco_uni * 0.04;
-		timposto = vimposto + preco_uni;
-		return timposto;
+		vimposto = preco_uni * 0.4;
+		if (id_produto == 2) {
+			return 0;
+		} else return vimposto;
 	}
 
 	public int getId_produto() {
@@ -36,21 +39,21 @@ public class Produto {
 		this.id_produto = id_produto;
 	}
 
-	public char getDescricao() {
+	public String getDescricao() {
 		return descricao;
 	}
 
-	public void setDescricao(char descricao) {
+	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
 
-	public char getNome_prod() {
+	public String getNome_prod() {
 		return nome_prod;
 	}
-
-	public void setNome_prod(char nome_prod) {
-		this.nome_prod = nome_prod;
-	}
+	
+	public String setNome_prod(String nome_prod) {
+		return this.nome_prod = nome_prod;
+	}	
 
 	public double getPreco_uni() {
 		return preco_uni;
@@ -91,11 +94,6 @@ public class Produto {
 	public void setImposto(float imposto) {
 		this.vimposto = imposto;
 	}
-
-	public void setNome_prod(String string) {
-		// TODO Auto-generated method stub
-		
-	}
 	
 	public double getImpostoT() {
 		return timposto;
@@ -104,6 +102,6 @@ public class Produto {
 	public void setImpostoT(float timposto) {
 		this.vimposto = timposto;
 	}
-	
+
 	
 }

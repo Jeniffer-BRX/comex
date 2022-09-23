@@ -6,7 +6,7 @@ public class Categoria {
 
 	private int id_cat = 0;
 	private String nome_cat;
-	private char statusC;
+	private comex.Categoria.statusC statusC;
 
 	public static enum statusC {
 
@@ -16,7 +16,7 @@ public class Categoria {
 	public Categoria() {
 	} // construtor
 
-	public Categoria(int id_cat, String nome_cat, String statusC) {
+	public Categoria(int id_cat, String nome_cat) {
 		super();
 		this.id_cat = id_cat;
 		this.nome_cat = nome_cat;
@@ -39,17 +39,15 @@ public class Categoria {
 		this.nome_cat = nome_cat;
 	}
 
-	public char getStatusC() {
+	public Categoria.statusC getStatusC() {
 		return statusC;
 	}
 
-	public void setStatusC(char ativa) {
+	public void setStatusC(Categoria.statusC ativa) {
 		this.statusC = ativa;
 	}
 
-	public void setStatusC(comex.Categoria.statusC inativa) {
-		// TODO Auto-generated method stub
 
-	}
+	
 
 }
