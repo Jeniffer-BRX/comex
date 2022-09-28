@@ -14,6 +14,8 @@ public class Categoria {
 	}
 
 	public Categoria() {
+		
+		//semana 7 - primeiro commit 
 	} // construtor
 
 	public Categoria(int id_cat, String nome_cat) {
