@@ -1,8 +1,8 @@
-package comex;
+package br.com.comex.modelo;
 
 public class Cliente {
 	int idCliente;
-	String nomeCliente;
+	public String nomeCliente;
 	int cpf;
 	String telefone;
 	String rua;
