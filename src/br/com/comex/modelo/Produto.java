@@ -2,41 +2,92 @@ package br.com.comex.modelo;
 
 public class Produto {
 
-	private int id_produto = 0;
+	private static long proxID = 1;
+
+	private long idProduto;
 	private String descricao;
-	private String nome_prod;
-	protected double preco_uni;
-	private int qtd_estoque;
+	private String nomeProd;
+	protected double precoUnit;
+	private int qtdEstoque;
 	private String categoria;
-	private double total_estoque;
-	protected double vimposto=0;
-	private double timposto;
+	private double totalEstoque;
+	protected double vImposto = 0;
+	private double tImposto;
 
-	public Produto () {} // construtor 
 	
-	
-	public double calcTotalEstoque () { // multiplica a quantidade em estoque pelo preço unitário
-		
-		total_estoque = qtd_estoque*preco_uni;
-		return total_estoque;
+	public Produto () {
 		
 	}
 	
-	public double calculaImposto () { //40 % do preço unitário
-		//timposto = vimposto + preco_uni;
-		
-		vimposto = preco_uni * 0.4;
-		if (id_produto == 2) {
+	public Produto(long idProduto, String nomeProd, double precoUnit, int qtdEstoque, String categoria) {
+		if (idProduto == proxID) {
+			throw new IllegalArgumentException("O ID ESTA IGUAL AO CONTADOR");
+		}
+
+		if (idProduto == 0) {
+			throw new IllegalArgumentException("O ID NULO, VERIFIQUE!");
+		}
+
+		this.idProduto = idProduto;
+		this.nomeProd = nomeProd;
+		this.precoUnit = precoUnit;
+		this.qtdEstoque = qtdEstoque;
+		this.categoria = categoria;
+		proxID++;
+	}
+
+	public Produto(String nomeProd, double precoUnit, int qtdEstoque, String categoria) {
+
+		this.idProduto = proxID;
+		this.nomeProd = nomeProd;
+		this.precoUnit = precoUnit;
+		this.qtdEstoque = qtdEstoque;
+		this.categoria = categoria;
+
+		if (nomeProd == null) {
+			throw new IllegalArgumentException("NOME EH OBRIGATORIO! VERIFIQUE ");
+		}
+
+		if (nomeProd.length() <= 5) {
+			throw new IllegalArgumentException("NOME DO PRODUTO INVALIDO! DEVE SER MAIOR QUE 5 CHAR");
+		}
+
+		if (precoUnit == 0) {
+			throw new IllegalArgumentException("PRECO INVALIDO, DEVE SER MAIOR QUE ZERO");
+		}
+
+		if (qtdEstoque == 0) {
+			throw new IllegalArgumentException("QUANTIDADE INVALIDA, DEVE SER MAIOR QUE ZERO");
+		}
+
+		if (categoria == null) {
+			throw new IllegalArgumentException("CATEGORIA INVALIDA, DEVE SER SER INFORMADA");
+		}
+	}
+
+	public double calcTotalEstoque() { // multiplica a quantidade em estoque pelo preço unitário
+
+		totalEstoque = qtdEstoque * precoUnit;
+		return totalEstoque;
+
+	}
+
+	public double calculaImposto() { // 40 % do preço unitário
+		// timposto = vimposto + preco_uni;
+
+		vImposto = precoUnit * 0.4;
+		if (idProduto == 2) {
 			return 0;
-		} else return vimposto;
+		} else
+			return vImposto;
 	}
 
-	public int getId_produto() {
-		return id_produto;
+	public long getIdProduto() {
+		return idProduto;
 	}
 
 	public void setId_produto(int id_produto) {
-		this.id_produto = id_produto;
+		this.idProduto = id_produto;
 	}
 
 	public String getDescricao() {
@@ -47,28 +98,28 @@ public class Produto {
 		this.descricao = descricao;
 	}
 
-	public String getNome_prod() {
-		return nome_prod;
-	}
-	
-	public String setNome_prod(String nome_prod) {
-		return this.nome_prod = nome_prod;
-	}	
-
-	public double getPreco_uni() {
-		return preco_uni;
+	public String getNomeProd() {
+		return nomeProd;
 	}
 
-	public void setPreco_uni(double d) {
-		this.preco_uni = d;
+	public String setNomeProd(String nome_prod) {
+		return this.nomeProd = nome_prod;
 	}
 
-	public int getQtd_estoque() {
-		return qtd_estoque;
+	public double getPrecoUnit() {
+		return precoUnit;
 	}
 
-	public void setQtd_estoque(int qtd_estoque) {
-		this.qtd_estoque = qtd_estoque;
+	public void setPrecoUnit(double d) {
+		this.precoUnit = d;
+	}
+
+	public int getQtdEstoque() {
+		return qtdEstoque;
+	}
+
+	public void setQtdEstoque(int qtd_estoque) {
+		this.qtdEstoque = qtd_estoque;
 	}
 
 	public String getCategoria() {
@@ -79,29 +130,28 @@ public class Produto {
 		this.categoria = string;
 	}
 
-	public double getTotal_estoque() {
-		return total_estoque;
+	public double getTotalEstoque() {
+		return totalEstoque;
 	}
 
 	public void setTotal_estoque(float total_estoque) {
-		this.total_estoque = total_estoque;
+		this.totalEstoque = total_estoque;
 	}
 
 	public double getImposto() {
-		return vimposto;
+		return vImposto;
 	}
 
 	public void setImposto(float imposto) {
-		this.vimposto = imposto;
+		this.vImposto = imposto;
 	}
-	
+
 	public double getImpostoT() {
-		return timposto;
+		return tImposto;
 	}
 
 	public void setImpostoT(float timposto) {
-		this.vimposto = timposto;
+		this.vImposto = timposto;
 	}
 
-	
 }

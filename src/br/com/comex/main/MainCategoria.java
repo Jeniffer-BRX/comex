@@ -8,9 +8,11 @@ public class MainCategoria {
 
 	public static void main(String[] args) {
 		try {
-			System.out.println("-------Teste Erros------");
-
+			System.out.println("-----------Teste Erros-----------");
+			System.out.println("---------------------------------");
 			System.out.println("ID   | NOME              | STATUS");
+			System.out.println("---------------------------------");
+			
 			Categoria testeErro = new Categoria("INFORMATICA ", StatusCategoria.INATIVA);
 			System.out.println(" " + testeErro.getId_cat() + "  -  " + testeErro.getNome_cat() + "      -  " + testeErro.getStatus());
 
@@ -21,6 +23,7 @@ public class MainCategoria {
 			
 			Categoria testeNOVO = new Categoria(4, "LIVROS ", StatusCategoria.ATIVA);
 			System.out.println(" " + testeNOVO.getId_cat() + "  -  " + testeNOVO.getNome_cat() + "           -  " + testeNOVO.getStatus());
+			
 			
 			Categoria teste1 = new Categoria ("teste", StatusCategoria.TESTE);
 			System.out.println(" " + teste1.getId_cat() + "  -  " + teste1.getNome_cat() + "           -  " + teste1.getStatus());
