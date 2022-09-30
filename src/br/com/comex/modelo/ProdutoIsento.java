@@ -8,7 +8,7 @@ public class ProdutoIsento extends Produto {
 
 	public double calculaIsento() { // isento
 
-		if (getIdProduto() == 2) {
+		if (getIdProduto() == 10) {
 			setImpostoT(0);
 		}
 		return 0;

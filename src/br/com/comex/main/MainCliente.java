@@ -5,11 +5,26 @@ import br.com.comex.modelo.Cliente;
 public class MainCliente {
 
 	public static void main(String[] args) {
-
-		Cliente teste = new Cliente(1, "Jeniffer G", 44444, "252222-0", "Abilio de mattos", 1735, "casa 239", "jd novo horizonte", "Dourados", "MS");
-
 		
-		System.out.println("Cliente : " + teste.nomeCliente);
-	}
+		try {
+			
+			Cliente teste = new Cliente(3, "jeniffer", 22222222, "151516", "Abilio de mattos", 123, "casa 239", "jd novo horizonte", "Ds", "MS");
 
-}
+			
+			System.out.println("Cliente : " +teste.getNomeCliente()+ " \n" 
+			+ teste.getCpf()+ " \n" 
+			+ teste.getTelefone()+ " \n" 
+			+ teste.getRua()+ " - " 
+			+ teste.getNumeroCasa() + " \n" 
+			+ teste.getComplemento() + " \n"
+			+ teste.getBairro() + " \n" 
+			+ teste.getCidade() + " "
+			+ teste.getEstado()+ " ");
+			
+		}catch (IllegalArgumentException erro) {
+			System.out.println("** Erro:   " + erro.getMessage());
+			}
+
+	}
+}	
+	

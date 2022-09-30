@@ -27,7 +27,7 @@ public class Produto {
 		if (idProduto == 0) {
 			throw new IllegalArgumentException("O ID NULO, VERIFIQUE!");
 		}
-
+		
 		this.idProduto = idProduto;
 		this.nomeProd = nomeProd;
 		this.precoUnit = precoUnit;
@@ -76,7 +76,7 @@ public class Produto {
 		// timposto = vimposto + preco_uni;
 
 		vImposto = precoUnit * 0.4;
-		if (idProduto == 2) {
+		if (idProduto == 10) {
 			return 0;
 		} else
 			return vImposto;
