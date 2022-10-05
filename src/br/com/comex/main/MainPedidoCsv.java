@@ -25,6 +25,10 @@ public class MainPedidoCsv {
 		for (PedidoCsv pedido : pedidoCsv) {
 			System.out.println(pedido.getCategoria() + ": " + pedido.getProduto() + " - " +  pedido.getData());
 		}
+		
+		for (PedidoCsv pedido : pedidoCsv) {
+			System.out.println(pedido.getQuantidade());
+		}
 	}
 
 }
