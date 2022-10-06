@@ -42,10 +42,10 @@ public class PedidoCsv {
 		return data;
 	}
 
-//	@Override
-//	public String toString() {
-//		return "Pedido{" + "categoria='" + categoria + '\'' + ", produto='" + produto + '\'' + ", preco='" + preco
-//				+ '\'' + ", quantidade=" + quantidade + ", data=" + data + ", cliente=" + cliente + '}';
-//	}
+	@Override
+	public String toString() {
+		return "Pedido{" + "categoria='" + categoria + '\'' + ", produto='" + produto + '\'' + ", preco='" + preco
+				+ '\'' + ", quantidade=" + quantidade + ", data=" + data + ", cliente=" + cliente + '}';
+	}
 
 }
