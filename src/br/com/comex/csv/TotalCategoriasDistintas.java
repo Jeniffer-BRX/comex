@@ -17,9 +17,6 @@ public class TotalCategoriasDistintas {
 			
 		}
 		return categoriaDistinta.size();
-
-	
-	
 	}
 
 }
