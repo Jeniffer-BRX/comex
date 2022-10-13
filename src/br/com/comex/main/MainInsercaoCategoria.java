@@ -22,6 +22,9 @@ public class MainInsercaoCategoria {
 		
 		stm.execute("INSERT INTO comex.CATEGORIA (ID, NOME, STATUS) VALUES (3,'LIVROS', 'ATIVA')"
 				, Statement.RETURN_GENERATED_KEYS);
+		
+//		stm.execute("INSERT INTO comex.CATEGORIA (ID, NOME, STATUS) VALUES (4,'teste1', 'INATIVA')"
+//				, Statement.RETURN_GENERATED_KEYS);
 
 		// TODO AJUSTAR O ID AUTO INCREMENT 
 //		ResultSet rst = stm.getGeneratedKeys();
