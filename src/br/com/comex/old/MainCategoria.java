@@ -1,8 +1,6 @@
-package br.com.comex.main;
+package br.com.comex.old;
 
 import java.lang.String;
-import br.com.comex.modelo.Categoria;
-import br.com.comex.modelo.StatusCategoria;
 
 public class MainCategoria {
 

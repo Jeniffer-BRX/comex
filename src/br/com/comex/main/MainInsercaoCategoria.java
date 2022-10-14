@@ -1,7 +1,8 @@
 package br.com.comex.main;
 
 import java.sql.Connection;
-//import java.sql.ResultSet;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -12,38 +13,37 @@ public class MainInsercaoCategoria {
 	public static void main(String[] args) throws SQLException {
 		ConnectionFactory factory = new ConnectionFactory();
 		Connection connection = factory.recuperarConexao();
-
-		Statement stm = connection.createStatement();
-		stm.execute("INSERT INTO comex.CATEGORIA (ID, NOME, STATUS) VALUES (1,'INFORMATICA', 'ATIVA')"
-				, Statement.RETURN_GENERATED_KEYS);
+		String[] coluna = { "ID" };
 		
-		stm.execute("INSERT INTO comex.CATEGORIA (ID, NOME, STATUS) VALUES (2,'MOVEIS', 'INATIVA')"
-				, Statement.RETURN_GENERATED_KEYS);
+		String sql = "INSERT INTO COMEX.CATEGORIA (NOME, STATUS) VALUES (?, ?)";
 		
-		stm.execute("INSERT INTO comex.CATEGORIA (ID, NOME, STATUS) VALUES (3,'LIVROS', 'ATIVA')"
-				, Statement.RETURN_GENERATED_KEYS);
+		PreparedStatement stm = connection.prepareStatement(sql);
+		PreparedStatement comando = connection.prepareStatement(sql, coluna);
 		
-//		stm.execute("INSERT INTO comex.CATEGORIA (ID, NOME, STATUS) VALUES (4,'teste1', 'INATIVA')"
-//				, Statement.RETURN_GENERATED_KEYS);
-
-		// TODO AJUSTAR O ID AUTO INCREMENT 
-//		ResultSet rst = stm.getGeneratedKeys();
-//		while(rst.next()) {
-//			 Integer id = rst.getInt("ID");
-//			System.out.println("O id criado foi: " + id);
-//		}
+		adicionarVariavel("MOVEIiS", "INATIVA", stm);
+		adicionarVariavel("INFORMATICA", "ATIVA", stm);
+		adicionarVariavel("LIVROS", "ATIVA", stm);
+		adicionarVariavel("testsVee", "ATIVA", stm);
+		
 		
 		System.out.println(" iNSERIDO! ");
-		//rst.close();
+		//produto.setId(rs.getLong(1));
 		stm.close();
+		comando.close();
 		connection.close();
 
 	}
-}
 
-/*
- * 
- * nome INFORMÁTICA, status ativa
-nome MÓVEIS, status inativa
-nome LIVROS, status ativa
- */
+	private static void adicionarVariavel(String nome, String status, PreparedStatement stm) throws SQLException {
+		stm.setNString(1, nome);
+		stm.setString(2, status);
+
+		stm.execute();
+		
+		ResultSet rs = stm.getGeneratedKeys();
+		rs.next();
+
+
+		
+	}
+}

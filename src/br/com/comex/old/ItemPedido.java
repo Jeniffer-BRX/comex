@@ -1,4 +1,4 @@
-package br.com.comex.modelo;
+package br.com.comex.old;
 
 public class ItemPedido {
 	

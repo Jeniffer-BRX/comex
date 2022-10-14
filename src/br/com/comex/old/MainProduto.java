@@ -1,6 +1,4 @@
-package br.com.comex.main;
-
-import br.com.comex.modelo.Produto;
+package br.com.comex.old;
 
 public class MainProduto {
 
