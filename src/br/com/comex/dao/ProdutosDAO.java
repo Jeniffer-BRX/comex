@@ -34,11 +34,16 @@ public class ProdutosDAO {
 
 		comando.close();
 	}
-
+	// TODO com erro ainda, verificar
 	public void alterar(ProdutosCRUD prod) throws SQLException {
-		String sql = "UPDATE COMEX.PRODUTO " + "   SET NOME = ?, " + "       DESCRICAO  = ?, "
-				+ "       PRECO_UNI = ?, " + "       QUANTIDADE_ESTOQUE   = ? " + "       TIPO = ?"
-				+ "       CATEGORIA_ID = ? " + " WHERE ID = ?;";
+		String sql = "UPDATE COMEX.PRODUTO " 
+				+ " SET NOME = ?  " 
+				+ "       DESCRICAO  = ?"
+				+ "       PRECO_UNI = ?" 
+				+ "       QUANTIDADE_ESTOQUE = ?" 
+				+ "       TIPO = ?"
+				+ "       CATEGORIA_ID = ?" 
+				+ " WHERE ID = ?";
 
 		PreparedStatement ps = conexao.prepareStatement(sql);
 		ps.setString(1, prod.getNome());
@@ -54,7 +59,7 @@ public class ProdutosDAO {
 
 	// add depoosi das duvidas da mentoria
 	public ProdutosCRUD buscarId(long id) throws SQLException {
-		String sql = "SELECT * FROM COMEX.PRODUTO WHERE ID = ? ;";
+		String sql = "SELECT * FROM COMEX.PRODUTO WHERE ID = ?";
 
 		try (PreparedStatement ps = this.conexao.prepareStatement(sql)) {
 			ps.setLong(1, id);
@@ -85,7 +90,7 @@ public class ProdutosDAO {
 			
 			produtos.add(prod);
 		}
-		System.out.println(produtos);
+		System.out.println(produtos + " \n ");
 		reg.close();
 		conexao.close();
 
@@ -93,7 +98,7 @@ public class ProdutosDAO {
 	}
 
 	public void excluir(Long id) throws SQLException {
-		String sql = "DELETE FROM COMEX.PRODUTO WHERE ID = ?;";
+		String sql = "DELETE FROM COMEX.PRODUTO WHERE ID = ?";
 
 		PreparedStatement ps = conexao.prepareStatement(sql);
 		ps.setLong(1, id);

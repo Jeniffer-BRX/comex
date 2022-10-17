@@ -13,16 +13,11 @@ public class TestaDaoExcluirProd {
 		Connection conn = new ConnectionFactory().recuperarConexao();
 		ProdutosDAO prodDao = new ProdutosDAO(conn);
 		
-		prodDao.excluir(5L);
+		prodDao.excluir(7L);
 		
 		prodDao.listarTodos();
 		
 		conn.close();
-		
-		
-		
-		
-		
 		
 	}
 
