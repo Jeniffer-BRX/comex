@@ -1,6 +1,4 @@
-package br.com.comex.old;
-
-import br.com.comex.modelo.Produto;
+package br.com.comex.modelo;
 
 public class ProdutoIsento extends Produto {
 

@@ -1,4 +1,4 @@
-package br.com.comex.old;
+package br.com.comex.main;
 
 import java.sql.SQLException;
 import br.com.comex.factory.ConnectionFactory;
