@@ -39,6 +39,8 @@ local.properties
 .recommenders
 .project
 .pydevproject
+.diversos
+.libs
 
 # External tool builders
 .externalToolBuilders/

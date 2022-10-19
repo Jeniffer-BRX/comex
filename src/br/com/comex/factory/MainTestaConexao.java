@@ -1,7 +1,6 @@
-package br.com.comex.old;
+package br.com.comex.factory;
 
 import java.sql.SQLException;
-import br.com.comex.factory.ConnectionFactory;
 
 public class MainTestaConexao {
 

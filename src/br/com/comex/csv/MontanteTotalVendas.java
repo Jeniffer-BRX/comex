@@ -5,10 +5,12 @@ import java.util.List;
 public class MontanteTotalVendas {
 
 	public double calcularMontanteTotalVendas (List<PedidoCsv> mTotalVenda) {
+		PedidoCsv ped = new PedidoCsv();
 		double total = 0;
 
 		for (PedidoCsv totais : mTotalVenda) {
-			total = total + Double.parseDouble(totais.getPreco()) * Double.parseDouble(totais.getQuantidade());		
+			
+			 total = total + ped.getValorTotal(); //sugestao de alteracao cacio
 		
 		}return total;	
 	}

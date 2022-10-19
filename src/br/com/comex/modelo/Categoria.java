@@ -1,4 +1,4 @@
-package br.com.comex.old;
+package br.com.comex.modelo;
 
 import java.lang.String;
 
@@ -6,37 +6,33 @@ public class Categoria {
 
 	private static long proximoID = 1;
 
-	private long idCategoria;
-	private String nomeCategoria;
+	private long id;
+	private String categoria;
 	private StatusCategoria status;
 
-	public Categoria(long id, String nome_cat, StatusCategoria status) {
-		if (id == proximoID) {
-			throw new IllegalArgumentException("O ID ESTA IGUAL AO CONTADOR");
-		}
-		
+	public Categoria(long id, String categoria, StatusCategoria status) {
 		if (id == 0) {
 			throw new IllegalArgumentException("O ID NULO, VERFIQUE!");
 		}
 
-		this.idCategoria = id;
-		this.nomeCategoria = nome_cat;
+		this.id = id;
+		this.categoria = categoria;
 		this.status = status;
 		proximoID++;
 
 	}
 
-	public Categoria(String nome_cat, StatusCategoria status) {
+	public Categoria(String categoria, StatusCategoria status) {
 		
-		this.idCategoria = proximoID;
-		this.nomeCategoria = nome_cat;
+		this.id = proximoID;
+		this.categoria = categoria;
 		this.status = status;
 
-		if (nome_cat == null) { //validar nome
+		if (categoria == null) { //validar nome
 			throw new IllegalArgumentException("NOME EH OBRIGATORIO! VERIFIQUE ");
 		}
 
-		if (nome_cat.length() <= 3) { //validar tamanho nome 
+		if (categoria.length() <= 3) { //validar tamanho nome 
 			throw new IllegalArgumentException("NOME DA CATEGORIA INVALIDO! DEVE SER MAIOR QUE 3 CHAR");
 		}
 
@@ -45,22 +41,28 @@ public class Categoria {
 		}
 		
 }
-	/**/
 
-	public long getId_cat() {
-		return idCategoria;
+	public Categoria(String nome) {
 	}
 
-	public void setId_cat(int id_cat) {
-		this.idCategoria = id_cat;
+	public Categoria(String nome, String status) {
+		// TODO Auto-generated constructor stub
 	}
 
-	public String getNome_cat() {
-		return nomeCategoria;
+	public long getId() {
+		return id;
 	}
 
-	public void setNome_cat(String nome_cat) {
-		this.nomeCategoria = nome_cat;
+	public String getCategoria() {
+		return categoria;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
 	}
 
 	public StatusCategoria getStatus() {
