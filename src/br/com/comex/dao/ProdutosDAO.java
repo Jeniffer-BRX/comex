@@ -90,7 +90,7 @@ public class ProdutosDAO {
 			
 			produtos.add(prod);
 		}
-		System.out.println(produtos + " \n ");
+		System.out.println(produtos);
 		reg.close();
 		conexao.close();
 
