@@ -6,7 +6,7 @@ import java.util.List;
 
 import br.com.comex.dao.ProdutosDAO;
 import br.com.comex.factory.ConnectionFactory;
-import br.com.comex.modelo.ProdutosCRUD;
+import br.com.comex.modelo.Produto;
 
 public class TestaDaoConsultaProd {
 
@@ -16,9 +16,9 @@ public class TestaDaoConsultaProd {
 			Connection conn = new ConnectionFactory().recuperarConexao();
 			ProdutosDAO prodDao = new ProdutosDAO(conn);
 			
-			List<ProdutosCRUD> prods = prodDao.listarTodos();
+			List<Produto> prods = prodDao.listarTodos();
 			
-			for (ProdutosCRUD produtos : prods) {
+			for (Produto produtos : prods) {
 				System.out.println(produtos);
 							}
 		} catch (Exception e) {

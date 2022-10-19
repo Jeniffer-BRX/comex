@@ -15,7 +15,16 @@ public class PedidoCsv {
 		this.preco = preco;
 		this.quantidade = quantidade;
 		this.data = data;
-		this.cliente = cliente;		
+		this.cliente = cliente;
+	}
+	
+	public PedidoCsv() {
+		
+	}
+	
+	public double getValorTotal() {
+
+		return Integer.valueOf(this.quantidade) * Double.valueOf(this.preco);
 	}
 
 	public String getCategoria() {

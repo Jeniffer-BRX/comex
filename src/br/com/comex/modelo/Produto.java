@@ -1,15 +1,19 @@
-package br.com.comex.old;
+package br.com.comex.modelo;
+
+import java.math.BigDecimal;
 
 public class Produto {
 
 	private static long proxID = 1;
 
-	private long idProduto;
+	private long id;
 	private String descricao;
-	private String nomeProd;
-	protected double precoUnit;
-	private int qtdEstoque;
+	private String nome;
+	private double preco_uni;
+	private int qtd_estoque;
 	private String categoria;
+	private int categoria_id;
+	private String tipo;
 	private double totalEstoque;
 	protected double vImposto = 0;
 	private double tImposto;
@@ -18,30 +22,39 @@ public class Produto {
 	public Produto () {
 		
 	}
+	public Produto (String nome, String descricao, double preco_uni, int qtd_estoque, int categoria_id, String tipo) {
+		this.nome = nome;
+		this.descricao = descricao;
+		this.preco_uni = preco_uni;
+		this.qtd_estoque = qtd_estoque;
+		this.tipo = tipo;
+		this.categoria_id = categoria_id;
+	}
 	
-	public Produto(long idProduto, String nomeProd, double precoUnit, int qtdEstoque, String categoria) {
-		if (idProduto == proxID) {
+	
+	public Produto(long id, String nomeProd, double precoUnit, int qtdEstoque, String categoria) {
+		if (id == proxID) {
 			throw new IllegalArgumentException("O ID ESTA IGUAL AO CONTADOR");
 		}
 
-		if (idProduto == 0) {
+		if (id == 0) {
 			throw new IllegalArgumentException("O ID NULO, VERIFIQUE!");
 		}
 		
-		this.idProduto = idProduto;
-		this.nomeProd = nomeProd;
-		this.precoUnit = precoUnit;
-		this.qtdEstoque = qtdEstoque;
+		this.setId(id);
+		this.nome = nomeProd;
+		this.preco_uni = precoUnit;
+		this.qtd_estoque = qtdEstoque;
 		this.categoria = categoria;
 		proxID++;
 	}
 
 	public Produto(String nomeProd, double precoUnit, int qtdEstoque, String categoria) {
 
-		this.idProduto = proxID;
-		this.nomeProd = nomeProd;
-		this.precoUnit = precoUnit;
-		this.qtdEstoque = qtdEstoque;
+		this.setId(proxID);
+		this.nome = nomeProd;
+		this.preco_uni = precoUnit;
+		this.qtd_estoque = qtdEstoque;
 		this.categoria = categoria;
 
 		if (nomeProd == null) {
@@ -67,7 +80,7 @@ public class Produto {
 
 	public double calcTotalEstoque() { // multiplica a quantidade em estoque pelo preço unitário
 
-		totalEstoque = qtdEstoque * precoUnit;
+		totalEstoque = qtd_estoque * preco_uni;
 		return totalEstoque;
 
 	}
@@ -75,21 +88,20 @@ public class Produto {
 	public double calculaImposto() { // 40 % do preço unitário
 		// timposto = vimposto + preco_uni;
 
-		vImposto = precoUnit * 0.4;
-		if (idProduto == 10) {
+		vImposto = preco_uni * 0.4;
+		if (getId() == 10) {
 			return 0;
 		} else
 			return vImposto;
 	}
 
-	public long getIdProduto() {
-		return idProduto;
-	}
 
-	public void setId_produto(int id_produto) {
-		this.idProduto = id_produto;
+	public long getId() {
+		return id;
 	}
-
+	public void setId(long id) {
+		this.id = id;
+	}
 	public String getDescricao() {
 		return descricao;
 	}
@@ -99,27 +111,27 @@ public class Produto {
 	}
 
 	public String getNomeProd() {
-		return nomeProd;
+		return nome;
 	}
 
 	public String setNomeProd(String nome_prod) {
-		return this.nomeProd = nome_prod;
+		return this.nome = nome_prod;
 	}
 
 	public double getPrecoUnit() {
-		return precoUnit;
+		return preco_uni;
 	}
 
 	public void setPrecoUnit(double d) {
-		this.precoUnit = d;
+		this.preco_uni = d;
 	}
 
 	public int getQtdEstoque() {
-		return qtdEstoque;
+		return qtd_estoque;
 	}
 
 	public void setQtdEstoque(int qtd_estoque) {
-		this.qtdEstoque = qtd_estoque;
+		this.qtd_estoque = qtd_estoque;
 	}
 
 	public String getCategoria() {
@@ -153,5 +165,28 @@ public class Produto {
 	public void setImpostoT(float timposto) {
 		this.vImposto = timposto;
 	}
+	
+	public int getCategoria_id() {
+		return categoria_id;
+	}
+
+	public void setCategoria_id(int categoria_id) {
+		this.categoria_id = categoria_id;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	@Override
+	public String toString() {
+		return "ProdutosCRUD [id=" + getId() + ", nome=" + getNomeProd() + ", descricao=" + getDescricao() + ", preco_uni=" + getPrecoUnit()
+				+ ", qtd_estoque=" + getQtdEstoque() + ", tipo=" + getTipo() + ", categoria_id=" + getCategoria_id() + "]";
+	}
+
 
 }

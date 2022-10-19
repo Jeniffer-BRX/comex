@@ -1,8 +1,6 @@
-package br.com.comex.old;
+package br.com.comex.modelo;
 
 import java.lang.String;
-
-import br.com.comex.modelo.StatusCategoria;
 
 public class Categoria {
 
@@ -13,10 +11,6 @@ public class Categoria {
 	private StatusCategoria status;
 
 	public Categoria(long id, String nome_cat, StatusCategoria status) {
-		if (id == proximoID) {
-			throw new IllegalArgumentException("O ID ESTA IGUAL AO CONTADOR");
-		}
-		
 		if (id == 0) {
 			throw new IllegalArgumentException("O ID NULO, VERFIQUE!");
 		}
@@ -48,6 +42,9 @@ public class Categoria {
 		
 }
 	/**/
+
+	public Categoria(String string) {
+	}
 
 	public long getId_cat() {
 		return idCategoria;

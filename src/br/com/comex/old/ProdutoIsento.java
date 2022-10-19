@@ -1,5 +1,7 @@
 package br.com.comex.old;
 
+import br.com.comex.modelo.Produto;
+
 public class ProdutoIsento extends Produto {
 
 	public ProdutoIsento() {
@@ -8,7 +10,7 @@ public class ProdutoIsento extends Produto {
 
 	public double calculaIsento() { // isento
 
-		if (getIdProduto() == 10) {
+		if (getId() == 10) {
 			setImpostoT(0);
 		}
 		return 0;

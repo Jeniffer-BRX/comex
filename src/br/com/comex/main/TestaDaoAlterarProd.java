@@ -1,12 +1,11 @@
 package br.com.comex.main;
 
-import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.SQLException;
 
 import br.com.comex.dao.ProdutosDAO;
 import br.com.comex.factory.ConnectionFactory;
-import br.com.comex.modelo.ProdutosCRUD;
+import br.com.comex.modelo.Produto;
 
 public class TestaDaoAlterarProd {
 
@@ -15,9 +14,9 @@ public class TestaDaoAlterarProd {
 		Connection conn = new ConnectionFactory().recuperarConexao();
 		ProdutosDAO prodDao = new ProdutosDAO(conn);
 		
-		ProdutosCRUD pt = prodDao.buscarId(2L);
-		pt.setNome("Teste");
-		pt.setPreco_uni(new BigDecimal(200));
+		Produto pt = prodDao.buscarId(2L);
+		pt.setNomeProd("Teste");
+		pt.setPrecoUnit(200);
 		
 		prodDao.alterar(pt);
 		
