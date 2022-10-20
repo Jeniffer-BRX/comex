@@ -2,6 +2,9 @@ package br.com.comex.modelo;
 
 import java.lang.String;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Categoria {
 
 	private static long proximoID = 1;
@@ -10,6 +13,16 @@ public class Categoria {
 	private String categoria;
 	private StatusCategoria status;
 
+	public Categoria() {
+		super();
+	}
+	
+	public Categoria(String nome) {
+	}
+
+	public Categoria(String nome, String status) {
+	}
+	
 	public Categoria(long id, String categoria, StatusCategoria status) {
 		if (id == 0) {
 			throw new IllegalArgumentException("O ID NULO, VERFIQUE!");
@@ -42,13 +55,6 @@ public class Categoria {
 		
 }
 
-	public Categoria(String nome) {
-	}
-
-	public Categoria(String nome, String status) {
-		// TODO Auto-generated constructor stub
-	}
-
 	public long getId() {
 		return id;
 	}
@@ -73,4 +79,20 @@ public class Categoria {
 		this.status = status;
 	}
 
+	public static long getProximoID() {
+		return proximoID;
+	}
+
+	public static void setProximoID(long proximoID) {
+		Categoria.proximoID = proximoID;
+	}
+	
+	
+	@Override
+	public String toString() {
+		return "Categoria [id=" + id + ", categoria=" + categoria + ", status=" + status + "]";
+	}
+
+	
+	
 }

@@ -28,6 +28,7 @@ public class CategoriaDAO {
 		comando.execute(); 
 		comando.close();
 	}
+	
 	public void alterar(Categoria cat) throws SQLException {
 		String sql = "UPDATE COMEX.CATEGORIA SET NOME = 'ELETRONICOS', STATUS = 'INATIVA' WHERE NOME = 'TESTE'";
 
@@ -41,23 +42,28 @@ public class CategoriaDAO {
 
 	public List<Categoria> listarTodos() throws SQLException {
 		String sql = "SELECT * FROM COMEX.CATEGORIA";
-
-		PreparedStatement cp = conexao.prepareStatement(sql);
-			
-			List<Categoria> categoria = new ArrayList<>();
-			
-			ResultSet reg = cp.executeQuery();
-			
-			while (reg.next()) {
-				Categoria cat = this.populaCat(reg);
-				categoria.add(cat);
+		List<Categoria> categoria = new ArrayList<>();
+		
+		try (PreparedStatement cp = conexao.prepareStatement(sql)){
+			try (ResultSet reg = cp.executeQuery()){
+				while (reg.next()) {
+					int id = reg.getInt("ID");
+					String nome = reg.getString("NOME");
+					String status = reg.getString("STATUS");
+					System.out.println("Categoria: " + id + " " + nome + " " +status);
+				}
+				return categoria;
+			} catch (Exception b) {
+				System.out.println(b);
 			}
 			
-			System.out.println(categoria);
-			reg.close();
-			conexao.close();
-
-			return categoria;
+		} catch (Exception e) {
+			System.out.println(e);
+		}		
+			//reg.close();
+			//conexao.close();
+		return categoria;
+		
 	}
 		
 
@@ -71,11 +77,10 @@ public class CategoriaDAO {
 	}
 	
 	
-	private Categoria populaCat (final ResultSet res) throws SQLException {
-		
-		Categoria cat = new Categoria(res.getString("nome"), res.getString("status"));
-		cat.setId(res.getLong("id"));
-		return cat;
-	}
+//	private Categoria populaCat (final ResultSet res) throws SQLException {
+//		
+//		Categoria categ = new Categoria(res.getString("nome"), res.getString("status"));
+//		return categ;
+//	}
 
 }

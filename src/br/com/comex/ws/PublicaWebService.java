@@ -6,12 +6,15 @@ public class PublicaWebService {
 
     public static void main(String[] args) {
 
-        CategoriaWS catWS = new CategoriaWS();
-        String URL = "http://localhost:8080/categoriaws";
+        ComexWS comex = new ComexWS();
+        
+        
+        String URL = "http://localhost:8080/ComexWS";
 
-        System.out.println("Categoria WS rodando: " + URL);
+        System.out.println("Comex WS Rodando: " + URL);
 
-        Endpoint.publish(URL, catWS); // associa de url e categoria ws
+        Endpoint.publish(URL, comex); // associa de url e categoria ws
+      
     }
 
 }

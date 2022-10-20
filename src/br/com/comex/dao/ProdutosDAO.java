@@ -91,8 +91,8 @@ public class ProdutosDAO {
 			produtos.add(prod);
 		}
 		System.out.println(produtos);
-		reg.close();
-		conexao.close();
+		//reg.close();
+		//conexao.close();
 
 		return produtos;
 	}

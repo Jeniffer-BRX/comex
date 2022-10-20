@@ -181,7 +181,30 @@ public class Produto {
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
+	
+	
 
+	public static void setProxID(long proxID) {
+		Produto.proxID = proxID;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public void setPreco_uni(double preco_uni) {
+		this.preco_uni = preco_uni;
+	}
+	public void setQtd_estoque(int qtd_estoque) {
+		this.qtd_estoque = qtd_estoque;
+	}
+	public void setTotalEstoque(double totalEstoque) {
+		this.totalEstoque = totalEstoque;
+	}
+	public void setvImposto(double vImposto) {
+		this.vImposto = vImposto;
+	}
+	public void settImposto(double tImposto) {
+		this.tImposto = tImposto;
+	}
 	@Override
 	public String toString() {
 		return "ProdutosCRUD [id=" + getId() + ", nome=" + getNomeProd() + ", descricao=" + getDescricao() + ", preco_uni=" + getPrecoUnit()
