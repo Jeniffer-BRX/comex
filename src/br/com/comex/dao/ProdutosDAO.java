@@ -34,7 +34,7 @@ public class ProdutosDAO {
 
 		comando.close();
 	}
-	// TODO com erro ainda, verificar
+	// 
 	public void alterar(Produto prod) throws SQLException {
 		String sql = "UPDATE COMEX.PRODUTO " 
 				+ " SET NOME = ?,  " 
@@ -75,7 +75,7 @@ public class ProdutosDAO {
 		}
 	}
 
-	public List<Produto> listarTodos() throws SQLException {
+	public List<Produto> listarProdutos() throws SQLException {
 		String sql = "SELECT * FROM comex.produto";
 
 		PreparedStatement cp = conexao.prepareStatement(sql);
@@ -86,7 +86,6 @@ public class ProdutosDAO {
 		
 		while (reg.next()) {
 			Produto prod = this.populaProdutos(reg);
-			//prod.setId(reg.getLong("id"));
 			
 			produtos.add(prod);
 		}

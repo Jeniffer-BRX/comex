@@ -15,7 +15,7 @@ public class TestaDaoExcluirProd {
 		
 		prodDao.excluir(7L);
 		
-		prodDao.listarTodos();
+		prodDao.listarProdutos();
 		
 		conn.close();
 		

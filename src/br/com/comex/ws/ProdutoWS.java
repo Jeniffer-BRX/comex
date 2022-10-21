@@ -20,7 +20,7 @@ public class ProdutoWS {
 	
 	public List<Produto> getProdutos () throws SQLException{
 		System.out.println("Chamando produtos: ");
-		return pDao.listarTodos();
+		return pDao.listarProdutos();
 	}
 	
 }

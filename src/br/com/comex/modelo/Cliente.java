@@ -1,30 +1,81 @@
 package br.com.comex.modelo;
 
 public class Cliente {
-	
-	int idCliente;
-	public String nomeCliente;
+	Long id;
+	String nomeCliente;
 	int cpf;
 	String telefone;
 	String rua;
-	int numeroCasa;
+	int numero;
 	String complemento;
 	String bairro;
 	String cidade;
-	String estado;
-
-	public Cliente(int idCliente, String nomeCliente, int cpf, String telefone, String rua, int numeroCasa,
-			String complemento, String bairro, String cidade, String estado) {
-
-		if (idCliente == 0) { //validar nome
-			throw new IllegalArgumentException("ID INVALIDO! VERIFIQUE");
-		}
+	String uf;
+	
+	//sem id
+	public Cliente (String nomeC, int cpf, String telefone, String rua, int numero,
+			String complemento, String bairro, String cidade, String uf) {
 		
-		if (nomeCliente == null) { //validar nome
+		this.nomeCliente = nomeC;
+		this.cpf = cpf;
+		this.telefone = telefone;
+		this.rua = rua;
+		this.numero = numero;
+		this.complemento = complemento;
+		this.bairro = bairro;
+		this.cidade = cidade;
+		this.uf = uf;
+		
+		if (nomeC == null) { //
 			throw new IllegalArgumentException("NOME EH OBRIGATORIO! VERIFIQUE ");
 		}
 		
-		if (nomeCliente.length() <= 5) {
+//		if (cliente.length() <= 5) {
+//			throw new IllegalArgumentException("NOME muito pequeno verifique! ");
+//		}
+		
+		if (cpf <= 11) {
+			throw new IllegalArgumentException("cpf com tamanho invalido, verifique! ");
+		}
+		
+		if (telefone == null ) {
+			throw new IllegalArgumentException("telefone em branco, verifique ");
+		}
+		
+		if (rua == null) {
+			throw new IllegalArgumentException("RUA EH OBRIGATORIO! VERIFIQUE ");
+		}
+		
+		if (numero == 0) {
+			throw new IllegalArgumentException("numero da casa EH OBRIGATORIO! VERIFIQUE ");
+		}
+		
+		if (bairro == null) { 
+			throw new IllegalArgumentException("BAIRRO EH OBRIGATORIO! VERIFIQUE ");
+		}
+		
+		if (cidade == null) { 
+			throw new IllegalArgumentException("CIDADE EH OBRIGATORIO! VERIFIQUE ");
+		}
+		
+		if (uf.length() > 2) {
+			throw new IllegalArgumentException("ESTADO com tamanho invalido! VERIFIQUE ");
+		}
+	}
+	
+	//com id
+	public Cliente(Long id, String nomeC, int cpf, String telefone, String rua, int numero,
+			String complemento, String bairro, String cidade, String uf) {
+
+		if (id == 0) { //validar nome
+			throw new IllegalArgumentException("ID INVALIDO! VERIFIQUE");
+		}
+		
+		if (nomeC == null) { //
+			throw new IllegalArgumentException("NOME EH OBRIGATORIO! VERIFIQUE ");
+		}
+		
+		if (nomeC.length() <= 2) {
 			throw new IllegalArgumentException("NOME muito pequeno verifique! ");
 		}
 		
@@ -40,7 +91,7 @@ public class Cliente {
 			throw new IllegalArgumentException("RUA EH OBRIGATORIO! VERIFIQUE ");
 		}
 		
-		if (numeroCasa == 0) {
+		if (numero == 0) {
 			throw new IllegalArgumentException("numero da casa EH OBRIGATORIO! VERIFIQUE ");
 		}
 		
@@ -52,29 +103,26 @@ public class Cliente {
 			throw new IllegalArgumentException("CIDADE EH OBRIGATORIO! VERIFIQUE ");
 		}
 		
-		if (estado.length() > 2) {
+		if (uf.length() > 2) {
 			throw new IllegalArgumentException("ESTADO com tamanho invalido! VERIFIQUE ");
 		}
 		
-		this.idCliente = idCliente;
-		this.nomeCliente = nomeCliente;
+		this.id = id;
+		this.nomeCliente = nomeC;
 		this.cpf = cpf;
 		this.telefone = telefone;
 		this.rua = rua;
-		this.numeroCasa = numeroCasa;
+		this.numero = numero;
 		this.complemento = complemento;
 		this.bairro = bairro;
 		this.cidade = cidade;
-		this.estado = estado;
+		this.uf = uf;
 		
 	}
 
-	public int getIdCliente() {
-		return idCliente;
-	}
-
-	public String getNomeCliente() {
-		return this.nomeCliente;
+	//gets e sets to string
+	public long getId() {
+		return id;
 	}
 
 	public int getCpf() {
@@ -89,8 +137,8 @@ public class Cliente {
 		return rua;
 	}
 
-	public int getNumeroCasa() {
-		return numeroCasa;
+	public int getNumero() {
+		return numero;
 	}
 
 	public String getComplemento() {
@@ -105,10 +153,62 @@ public class Cliente {
 		return cidade;
 	}
 
-	public String getEstado() {
-		return estado;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
+	public void setCpf(int cpf) {
+		this.cpf = cpf;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+
+	public void setRua(String rua) {
+		this.rua = rua;
+	}
+
+	public void setNumero(int numero) {
+		this.numero = numero;
+	}
+
+	public void setComplemento(String complemento) {
+		this.complemento = complemento;
+	}
+
+	public void setBairro(String bairro) {
+		this.bairro = bairro;
+	}
+
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+		
+	public String getNomeCliente() {
+		return nomeCliente;
+	}
+
+	public String getUf() {
+		return uf;
+	}
+
+	public void setNomeCliente(String nomeCliente) {
+		this.nomeCliente = nomeCliente;
+	}
+
+	public void setUf(String uf) {
+		this.uf = uf;
+	}
+
+	@Override
+	public String toString() {
+		return "Cliente [id=" + id + ", nome=" + nomeCliente + ", cpf=" + cpf + ", telefone=" + telefone + ", rua=" + rua
+				+ ", numero=" + numero + ", complemento=" + complemento + ", bairro=" + bairro + ", cidade="
+				+ cidade + ", estado=" + uf + "]";
+	}
+
+	
 }
 
 /*

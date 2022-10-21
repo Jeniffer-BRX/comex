@@ -22,7 +22,7 @@ public class CategoriaDAO {
 		String sql = "INSERT INTO COMEX.categoria (NOME, STATUS) VALUES (?,?)";
 
 		PreparedStatement comando = conexao.prepareStatement(sql);
-		comando.setString(1, categoria.getCategoria());
+		comando.setString(1, categoria.getNome());
 		comando.setString(2, categoria.getStatus().ATIVA.name()); //
 		
 		comando.execute(); 
@@ -34,35 +34,27 @@ public class CategoriaDAO {
 
 		PreparedStatement ps = conexao.prepareStatement(sql); // fazer o popula categoria
 		ps.setLong(1, cat.getId());
-		ps.setString(2, cat.getCategoria());
+		ps.setString(2, cat.getNome());
 		ps.setString(3, cat.getStatus().name());
 
 		ps.execute();
 	}
 
-	public List<Categoria> listarTodos() throws SQLException {
+	public List<Categoria> listarCategorias() throws SQLException {
 		String sql = "SELECT * FROM COMEX.CATEGORIA";
-		List<Categoria> categoria = new ArrayList<>();
 		
-		try (PreparedStatement cp = conexao.prepareStatement(sql)){
-			try (ResultSet reg = cp.executeQuery()){
-				while (reg.next()) {
-					int id = reg.getInt("ID");
-					String nome = reg.getString("NOME");
-					String status = reg.getString("STATUS");
-					System.out.println("Categoria: " + id + " " + nome + " " +status);
-				}
-				return categoria;
-			} catch (Exception b) {
-				System.out.println(b);
-			}
-			
-		} catch (Exception e) {
-			System.out.println(e);
-		}		
-			//reg.close();
-			//conexao.close();
-		return categoria;
+		PreparedStatement cp = conexao.prepareStatement(sql);
+		
+		List<Categoria> categorias = new ArrayList<>();
+		
+		ResultSet res = cp.executeQuery();
+		
+		while (res.next()) {
+			Categoria cat = this.populaCategoria(res);
+			categorias.add(cat);
+		}			
+		System.out.println(categorias);
+		return categorias;
 		
 	}
 		
@@ -77,10 +69,12 @@ public class CategoriaDAO {
 	}
 	
 	
-//	private Categoria populaCat (final ResultSet res) throws SQLException {
-//		
-//		Categoria categ = new Categoria(res.getString("nome"), res.getString("status"));
-//		return categ;
-//	}
+	private Categoria populaCategoria (ResultSet res) throws SQLException {
+		
+		Categoria categ = new Categoria(res.getString("nome"), 
+				StatusCategoria.valueOf(res.getString("status")));
+		categ.setId(res.getLong("id"));
+		return categ;
+	}
 
 }

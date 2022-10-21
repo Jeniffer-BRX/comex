@@ -22,7 +22,7 @@ public class MainProdutosDAO {
 		conn.close();
 		
 		//buscar
-		List<Produto> prods = prodDao.listarTodos();
+		List<Produto> prods = prodDao.listarProdutos();
 		
 		for (Produto produtos : prods) {
 			System.out.println(produtos);
@@ -32,7 +32,7 @@ public class MainProdutosDAO {
 		//excluir
 		prodDao.excluir(2L);
 		
-		prodDao.listarTodos();
+		prodDao.listarProdutos();
 		
 		conn.close();
 		

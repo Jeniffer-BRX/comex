@@ -4,10 +4,8 @@ import java.sql.Connection;
 import java.util.List;
 
 import br.com.comex.dao.CategoriaDAO;
-import br.com.comex.dao.ProdutosDAO;
 import br.com.comex.factory.ConnectionFactory;
 import br.com.comex.modelo.Categoria;
-import br.com.comex.modelo.Produto;
 
 public class TestaDAOCategoriaListar {
 	
@@ -17,7 +15,7 @@ public class TestaDAOCategoriaListar {
 			Connection conn = new ConnectionFactory().recuperarConexao();
 			CategoriaDAO catDAO = new CategoriaDAO(conn);
 			
-			List<Categoria> cat = catDAO.listarTodos();
+			List<Categoria> cat = catDAO.listarCategorias();
 			
 			for (Categoria categoria : cat) {
 				System.out.println(categoria);

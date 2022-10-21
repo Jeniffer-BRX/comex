@@ -4,26 +4,28 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
-import br.com.comex.dao.ProdutosDAO;
+import br.com.comex.dao.ClienteDAO;
 import br.com.comex.factory.ConnectionFactory;
-import br.com.comex.modelo.Produto;
+import br.com.comex.modelo.Cliente;
 
-public class TestaDaoConsultaProd {
+public class TestaDaoConsultaCliente {
 
 	public static void main(String[] args) throws SQLException {
 		
 		try {
 			Connection conn = new ConnectionFactory().recuperarConexao();
-			ProdutosDAO prodDao = new ProdutosDAO(conn);
+			ClienteDAO cliDAO = new ClienteDAO(conn);
 			
-			List<Produto> prods = prodDao.listarProdutos();
+			List<Cliente> cli = cliDAO.listarClientes();
 			
-			for (Produto produtos : prods) {
-				System.out.println(produtos);
-							}
+			for (Cliente cliente : cli) {
+				System.out.println(cliente);				
+			}
+			conn.close();
+			
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-
+		
 	}
 }

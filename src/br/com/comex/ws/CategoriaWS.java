@@ -20,6 +20,6 @@ public class CategoriaWS {
 
 		public List<Categoria> getCategorias() throws SQLException {
 			System.out.println("Chamando Categorias: ");
-			return dao.listarTodos();
+			return dao.listarCategorias();
 		}
 }
