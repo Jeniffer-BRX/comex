@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.jws.WebMethod;
+
 import br.com.comex.modelo.Categoria;
 import br.com.comex.modelo.StatusCategoria;
 
@@ -18,7 +20,7 @@ public class CategoriaDAO {
 		this.conexao = conexao;
 	}
 
-	public void inserir(Categoria categoria) throws SQLException {
+	public void inserirCategoria(Categoria categoria) throws SQLException {
 		String sql = "INSERT INTO COMEX.categoria (NOME, STATUS) VALUES (?,?)";
 
 		PreparedStatement comando = conexao.prepareStatement(sql);
@@ -29,7 +31,7 @@ public class CategoriaDAO {
 		comando.close();
 	}
 	
-	public void alterar(Categoria cat) throws SQLException {
+	public void alterarCategoria(Categoria cat) throws SQLException {
 		String sql = "UPDATE COMEX.CATEGORIA SET NOME = 'ELETRONICOS', STATUS = 'INATIVA' WHERE NOME = 'TESTE'";
 
 		PreparedStatement ps = conexao.prepareStatement(sql); // fazer o popula categoria
@@ -59,7 +61,7 @@ public class CategoriaDAO {
 	}
 		
 
-	public void excluir(String nome) throws SQLException {
+	public void excluirCategoria(String nome) throws SQLException {
 		String sql = "DELETE FROM COMEX.CATEGORIA WHERE NOME = ?";
 
 		PreparedStatement ps = conexao.prepareStatement(sql);
