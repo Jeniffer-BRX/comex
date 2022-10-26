@@ -47,11 +47,11 @@ public class ComexWS {
 		
 	}
 	// TODO fazer , nao terminado
-	@WebMethod(operationName = "adicionarCategorias")
-	public void adicionarCategoria () {
-		System.out.println("Inserindo Categorias: ");
-		return;
-	}
+//	@WebMethod(operationName = "adicionarCategorias")
+//	public void adicionarCategoria () {
+//		System.out.println("Inserindo Categorias: ");
+//		return;
+//	}
 	
 	
 }
