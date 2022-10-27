@@ -10,7 +10,7 @@ public class ConnectionFactory {
 		
 		try {
 			return DriverManager.getConnection
-					("jdbc:oracle:thin:@//localhost:1522/xe","system", "ora123");
+					("jdbc:oracle:thin:@//0.0.0.0:1522/xe","system", "admin");
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}

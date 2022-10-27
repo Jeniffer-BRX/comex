@@ -9,7 +9,7 @@ public class PublicaWebService {
         ComexWS comex = new ComexWS();
         
         
-        String URL = "http://localhost:8080/ComexWS";
+        String URL = "http://0.0.0.0:8080/ComexWS";
 
         System.out.println("Comex WS Rodando: " + URL);
 
